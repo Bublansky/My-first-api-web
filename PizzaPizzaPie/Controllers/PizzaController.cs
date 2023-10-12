@@ -8,15 +8,15 @@ namespace PizzaPizzaPie.Controllers;
 [Route("[controller]")]
 public class PizzaController : ControllerBase
 {
-    private readonly PizzaService pizzaService;
+    private readonly PizzaService? pizzaService;
 
     public PizzaController()
     {
-        pizzaService = new PizzaService();
+        // pizzaService = new PizzaService();
     }
 
-    [HttpGet]
-    public ActionResult<List<Pizza>> GetAll() => pizzaService.GetAll();
+    // [HttpGet]
+    // public ActionResult<List<Pizza>> GetAll() => pizzaService.GetAll();
 
     [HttpGet("{id}")]
     public ActionResult<Pizza> Get(int id)
@@ -31,13 +31,13 @@ public class PizzaController : ControllerBase
         return pizza;
     }
 
-    [HttpPost]
-    public IActionResult Create(Pizza pizza)
-    {            
-        pizzaService.Add(pizza);
+    // [HttpPost]
+    // public IActionResult Create(Pizza pizza)
+    // {            
+    //     pizzaService.Add(pizza);
 
-        return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
-    }
+    //     return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
+    // }
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, Pizza pizza)
